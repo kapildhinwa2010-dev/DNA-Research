@@ -46,4 +46,4 @@ jobs:
       - name: Compile and smoke-test package
         run: |
           python -m compileall -q dna_research.py tests
-          python -c "from dna_research import GeneRecord; print(type(GeneRecord()).__name__)"
+          python -c "import numpy as np; from dna_research import encode, decode; W = np.random.randn(4,3); assert decode(encode(W, bits=8)).shape == (4,3)"
